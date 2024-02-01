@@ -4,6 +4,7 @@ using UnityEngine;
 public class CubeTurn : MonoBehaviour
 {
     [SerializeField] private GameObject _cube;
+    private Coroutine _coroutine;
 
     private IEnumerator TurnCube()
     {
@@ -18,11 +19,11 @@ public class CubeTurn : MonoBehaviour
 
     public void TurnCubeOnClick()
     {
-        StartCoroutine(TurnCube());
+        _coroutine = StartCoroutine(TurnCube());
     }
 
     public void StopCubeOnClick()
     {
-        StopCoroutine(TurnCube());
+        StopCoroutine(_coroutine);
     }
 }
